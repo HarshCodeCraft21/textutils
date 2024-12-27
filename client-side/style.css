@@ -1,23 +1,23 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     font-family: sans-serif;
 }
-html,body{
+html, body {
     height: 100vh;
     width: 100vw;
     display: grid;
     place-content: center;
 }
-h2{
+h2 {
     text-align: center;
     margin-block: 2rem;
     font-size: 36px;
     font-weight: 400;
     letter-spacing: 1px;
 }
-.container{
+.container {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -27,25 +27,47 @@ h2{
     width: fit-content;
     padding: 20px;
     border-radius: 10px;
+    flex-wrap: wrap; /* Allows elements to stack on smaller screens */
 }
-.container > textarea{
+.container > textarea {
     height: 260px;
-    width: 450px;
+    width: 100%; /* Set width to 100% for better scaling */
+    max-width: 450px; /* Maintain a reasonable max width */
     border-radius: 10px;
-    padding:20px;
+    padding: 20px;
     resize: none;
 }
-.controllers{
+.controllers {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    width: 100%; /* Adjust to fit parent width */
+    align-items: center; /* Center buttons on small screens */
 }
-button{
+button {
     height: 40px;
-    width: 100px;
+    width: 100%; /* Make buttons take full width */
+    max-width: 100px; /* Limit button width on larger screens */
     border: none;
     border-radius: 5px;
     background-color: teal;
     color: #fff;
     cursor: pointer;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+    h2 {
+        font-size: 24px; /* Reduce heading size */
+    }
+    .container {
+        gap: 0.5rem;
+        padding: 15px; /* Reduce padding for smaller screens */
+    }
+    .container > textarea {
+        height: 200px; /* Adjust textarea height */
+    }
+    button {
+        max-width: none; /* Allow buttons to stretch */
+    }
 }
